@@ -5,15 +5,16 @@ const sheet_name_list = workbook.SheetNames;
 const xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]], {
     blankrows: false,
     defval: '',
-    header: 'A',
+    header: 'A', //its give alpha sequence to the keys
     raw: true,
     rawNumbers: true
 });
 filteredArr = xlData.slice(1); //to remove the header 
 myJsonArray = filteredArr.map(obj => {
     newObj = {}
+        // Get the keys of the object from first row 
     const newKeys = Object.values(xlData[0]);
-    // Get the keys of the object
+    // map the keys of the object 
     Object.keys(obj).forEach(key => {
         switch (key) {
             case 'A':
