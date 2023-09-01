@@ -24,7 +24,7 @@ const bblSort = (arr) => {
 }
   
 // This is our unsorted array
-const arr = [200, 40, 30, 308, 5, 1280, 20, 15];
+let arr = [200, 40, 30, 308, 5, 1280, 20, 15];
   
 // Now pass this array to the bblSort() function
 bblSort(arr);
@@ -66,7 +66,7 @@ const OptmizeBubbleSort = (arr) => {
     console.log(arr)
 }
   
-const arr = [200, 40, 30, 308, 5, 1280, 20, 15];
+let array = [200, 40, 30, 308, 5, 1280, 20, 15];
   
 // calling the bubbleSort Function
-OptmizeBubbleSort(arr)
+OptmizeBubbleSort(array)
