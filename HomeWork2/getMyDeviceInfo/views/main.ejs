@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>EJS Is Fun</title>
+  <!-- CSS (load bootstrap from a CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      padding-top: 50px;
+    }
+  </style>
+</head>
+<script>
+  const Export = () => {
+    fetch('/export')
+      .then((res) => alert("export sucssfully"))
+  }
+</script>
+
+<body class="container" style="background-color: #3e3ed50f;"">
+<main>
+<div class=" row">
+  <h1>Your Device Info</h1>
+  </div>
+  <div class="row">
+
+    <div class="col-sm-8" style="word-wrap:break-word;padding: 0px 78px;">
+
+      <h3>Architecture:</h3>
+      <p>
+        <%= osInfo.architecture %>
+      </p>
+      <h3>Hostname:</h3>
+      <p>
+        <%= osInfo.hostname %>
+      </p>
+      <h3>OS Release Info:</h3>
+      <p>
+        <%= osInfo.oSReleaseInfo %>
+      </p>
+      <h3>Uptime of OS:</h3>
+      <p>
+        <%= osInfo.uptimeOfOS %>
+      </p>
+      <h3>User Info:</h3>
+      <p>
+        <%= JSON.stringify(osInfo.userInfo) %>
+      </p>
+      <h3>Cpus:</h3>
+      <ul>
+        <% osInfo.cpus.forEach(function(item) { %>
+          <li>
+            <strong>model</strong>
+            <%= item.model %>
+              </br>
+              <strong>speed</strong>
+              <%= item.speed %>,
+                </br>
+                <strong>times </strong>
+                <%= JSON.stringify(item.times) %>,
+          </li>
+          <% }); %>
+      </ul>
+    </div>
+
+    <div class="col-sm-4">
+      <div style="margin-top: 62px;">
+        <button type="button" class="btn btn-primary"  onclick="Export()">Export To PDF </button>
+
+      </div>
+    </div>
+  </div>
+  </main>
+
+</body>
+
+</html>
